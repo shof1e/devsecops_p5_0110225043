@@ -30,5 +30,3 @@ def run_demo() -> None:
 
 if __name__ == "__main__":
     run_demo()
-    cmd = input()
-    eval(cmd)
