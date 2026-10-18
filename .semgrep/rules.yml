@@ -1,23 +1,14 @@
 rules:
-  - id: express-reflected-xss-res-send
-    languages: [javascript, typescript]
+  - id: custom-no-eval
+    languages: [python]
     severity: ERROR
-    mode: taint
-    message: Input dari req.query/body/params dikirim ke res.send() tanpa di-escape (reflected XSS).
-    pattern-sources:
-      - pattern-either:
-          - pattern: req.query
-          - pattern: req.body
-          - pattern: req.params
-    pattern-sinks:
-      - pattern: res.send(...)
-    pattern-sanitizers:
-      - pattern: escapeHtml(...)
-
-  - id: express-session-insecure-cookie
-    languages: [javascript, typescript]
-    severity: WARNING
-    message: express-session dipakai tanpa cookie httpOnly. Tambahkan cookie { httpOnly: true, secure: true }.
+    message: Hindari eval() pada data dinamis; bisa menyebabkan code injection.
     patterns:
-      - pattern: $APP.use(session({...}))
-      - pattern-not: $APP.use(session({..., cookie: {..., httpOnly: true, ...}, ...}))
+      - pattern: eval($X)
+      - pattern-not: eval("...")
+
+  - id: custom-subprocess-shell-true
+    languages: [python]
+    severity: ERROR
+    message: subprocess dengan shell=True rentan command injection.
+    pattern: subprocess.$FUNC(..., shell=True, ...)
