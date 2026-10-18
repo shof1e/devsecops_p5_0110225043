@@ -3,3 +3,9 @@ user_input = input()
 eval(user_input)
 # ok: custom-no-eval
 eval("1 + 1")
+
+import subprocess
+# ruleid: custom-subprocess-shell-true
+subprocess.run("ls " + user_input, shell=True)
+# ok: custom-subprocess-shell-true
+subprocess.run(["ls"], shell=False)
