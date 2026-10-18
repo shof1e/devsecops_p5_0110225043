@@ -9,14 +9,19 @@ on:
 jobs:
   semgrep:
     runs-on: ubuntu-latest
-    container:
-      image: semgrep/semgrep
     permissions:
       security-events: write
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - run: semgrep --config .semgrep/rules.yml --sarif --output semgrep.sarif .
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install semgrep
+      - name: Validasi rule
+        run: semgrep --test .semgrep/
+      - name: Scan project
+        run: semgrep --config .semgrep/rules.yml --sarif --output semgrep.sarif app/
       - uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
