@@ -18,13 +18,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [javascript-typescript]   # ganti: python, java-kotlin, go, dll.
+        language: [python]
     steps:
       - uses: actions/checkout@v4
       - uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
-      - uses: github/codeql-action/autobuild@v3   # hapus untuk JS/Python
       - uses: github/codeql-action/analyze@v3
         with:
           category: "/language:${{ matrix.language }}"
