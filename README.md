@@ -48,6 +48,12 @@ Actions, dengan 2 job terpisah yang berjalan di runner `ubuntu-latest`:
 
 Workflow terpicu otomatis setiap ada **push ke branch `main`** dan setiap ada
 **pull request ke branch `main`**.
+Selain `devsecops.yml`, terdapat dua workflow SAST tambahan:
+
+| Workflow | Fungsi |
+|---|---|
+| `codeql.yml` | Analisis SAST CodeQL untuk Python (push, pull request ke `main`, dan jadwal mingguan) |
+| `semgrep.yml` | Scan SAST dengan custom rule di `.semgrep/rules.yml`, hasil diunggah ke Code scanning |
 
 ### Konfigurasi terkait
 - `sonar-project.properties` — konfigurasi project untuk analisis SonarCloud
