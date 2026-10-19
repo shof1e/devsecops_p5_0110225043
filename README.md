@@ -1,4 +1,20 @@
-# DevSecOps Pertemuan 5 
+# Inventory Manager CLI
+
+Repository untuk Tugas Mandiri Pertemuan 5 – Integrasi SAST dalam CI/CD
+Pipeline dengan GitHub Actions.
+
+## 1. Nama Aplikasi & Fungsinya
+**Inventory Manager CLI** adalah aplikasi command-line sederhana untuk
+mengelola data inventaris barang. Fungsi utamanya: menambah dan memperbarui
+data barang, memvalidasi input, serta menghasilkan laporan ringkas stok.
+Aplikasi ini dibuat sebagai objek latihan penerapan pipeline DevSecOps.
+
+Struktur kode:
+- `app/main.py` – titik masuk aplikasi (demo)
+- `app/inventory.py` – logika pengelolaan inventaris
+- `app/report.py` – pembuatan laporan stok
+- `app/validators.py` – validasi input
+- `tests/test_app.py` – unit test
 
 ## 1. Bahasa / Framework
 - **Bahasa:** Python 3.11
