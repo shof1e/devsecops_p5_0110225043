@@ -1,11 +1,14 @@
-user_input = input()
-# ruleid: custom-no-eval
-eval(user_input)
-# ok: custom-no-eval
-eval("1 + 1")
-
 import subprocess
+
+# ruleid: custom-no-eval
+cmd = input("Masukkan perintah: ")
+eval(cmd)
+
+# ok: custom-no-eval
+eval("2 + 2")
+
 # ruleid: custom-subprocess-shell-true
-subprocess.run("ls " + user_input, shell=True)
+subprocess.run("echo hello", shell=True)
+
 # ok: custom-subprocess-shell-true
-subprocess.run(["ls"], shell=False)
+subprocess.run(["echo", "hello"], shell=False)
