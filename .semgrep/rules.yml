@@ -3,9 +3,7 @@ rules:
     languages: [python]
     severity: ERROR
     message: Hindari eval() pada data dinamis; bisa menyebabkan code injection.
-    patterns:
-      - pattern: eval($X)
-      - pattern-not: eval("...")
+    pattern: eval(...)
 
   - id: custom-subprocess-shell-true
     languages: [python]
