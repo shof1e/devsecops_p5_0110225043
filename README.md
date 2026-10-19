@@ -1,18 +1,12 @@
-# DevSecOps Pertemuan 5 — Manajemen Inventori Sederhana
+# DevSecOps Pertemuan 5 
 
-## 1. Nama Aplikasi & Fungsinya
-**Manajemen Inventori Sederhana** adalah aplikasi command-line berbasis Python
-yang mendemonstrasikan pengelolaan stok barang: menambah barang, mengurangi
-stok, memvalidasi input, dan menghasilkan ringkasan laporan (total nilai
-inventori, barang dengan stok menipis, dsb).
-
-## 2. Bahasa / Framework
+## 1. Bahasa / Framework
 - **Bahasa:** Python 3.11
 - **Testing:** pytest + pytest-cov
 - Tidak menggunakan framework web (murni Python standard library untuk logika
   inti), sehingga mudah dijalankan tanpa dependency berat.
 
-## 3. Cara Menjalankan Aplikasi
+## 2. Cara Menjalankan Aplikasi
 ```bash
 # 1. Install dependency
 pip install -r requirements.txt
@@ -24,7 +18,7 @@ python -m app.main
 pytest --cov=app --cov-report=xml:coverage.xml
 ```
 
-## 4. Overview Pipeline CI/CD
+## 3. Overview Pipeline CI/CD
 Pipeline didefinisikan di `.github/workflows/devsecops.yml` menggunakan GitHub
 Actions, dengan 2 job terpisah yang berjalan di runner `ubuntu-latest`:
 
