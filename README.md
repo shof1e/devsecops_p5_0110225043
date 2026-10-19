@@ -16,13 +16,13 @@ Struktur kode:
 - `app/validators.py` – validasi input
 - `tests/test_app.py` – unit test
 
-## 1. Bahasa / Framework
+## 2. Bahasa / Framework
 - **Bahasa:** Python 3.11
 - **Testing:** pytest + pytest-cov
 - Tidak menggunakan framework web (murni Python standard library untuk logika
   inti), sehingga mudah dijalankan tanpa dependency berat.
 
-## 2. Cara Menjalankan Aplikasi
+## 3. Cara Menjalankan Aplikasi
 ```bash
 # 1. Install dependency
 pip install -r requirements.txt
@@ -34,7 +34,7 @@ python -m app.main
 pytest --cov=app --cov-report=xml:coverage.xml
 ```
 
-## 3. Overview Pipeline CI/CD
+## 4. Overview Pipeline CI/CD
 Pipeline didefinisikan di `.github/workflows/devsecops.yml` menggunakan GitHub
 Actions, dengan 2 job terpisah yang berjalan di runner `ubuntu-latest`:
 
